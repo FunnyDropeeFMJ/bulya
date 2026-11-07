@@ -1,0 +1,42 @@
+# Personal credentials, runtime state and local experiments
+.env
+.env.*
+!.env.example
+**/node_modules/
+**/.npm-cache/
+**/.electron-cache/
+**/.test-runs/
+**/dist/
+**/release/
+**/test_memory/
+**/test_fix/
+**/test_files/
+**/brain.key
+**/brain.json
+**/память*.json*
+**/сейф.bin*
+*.log
+*.bak
+*.tmp
+**/debug_shot.png
+# Historical diagnostics are kept locally; maintained tests live in tests/.
+/app_frames/test_*.js
+
+# Historical versions and source artwork; the current app is app_frames/
+/app/
+/backup_*/
+/concepts/
+/frames/
+/new_frames/
+/poses/
+/sprites/
+/demo/
+/*.html
+/frames*.json
+/idle_fix.json
+/poses.json
+/prompts*.json
+/gen_concept.py
+/test_tools.py
+/publish/
+/.release-check/

@@ -1,0 +1,55 @@
+{
+  "name": "bulya-helper-frames",
+  "version": "0.4.0",
+  "description": "Буля — живой помощник по компьютеру",
+  "productName": "Буля",
+  "author": "Тимур",
+  "license": "MIT",
+  "private": true,
+  "engines": { "node": ">=22.14.0" },
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "node --test tests/core.test.cjs tests/behavior.test.cjs",
+    "test:live": "electron tests/live.cjs",
+    "test:native": "electron tests/native-smoke.cjs",
+    "check": "node ../scripts/check-project.cjs",
+    "pack:win": "electron-builder --win --x64 --dir",
+    "dist:win": "electron-builder --win portable --x64"
+  },
+  "dependencies": {
+    "docx": "9.15.0",
+    "docxtemplater": "3.71.1",
+    "pizzip": "3.3.0",
+    "exceljs": "4.4.0",
+    "pdfjs-dist": "4.10.38"
+  },
+  "devDependencies": {
+    "electron": "45.2.3",
+    "electron-builder": "26.18.0"
+  },
+  "overrides": {
+    "exceljs": { "uuid": "11.1.1" },
+    "app-builder-lib": { "minimatch": "11.0.5" },
+    "@electron/universal": { "minimatch": "11.0.5" }
+  },
+  "build": {
+    "appId": "Bulya.Helper",
+    "asar": true,
+    "directories": { "output": "dist" },
+    "files": [
+      "main.js", "preload.js", "renderer.js", "index.html", "style.css",
+      "settings.js", "settings_preload.js", "settings.html",
+      "skin.js", "skin_preload.js", "skin.html", "recolor.js",
+      "brain.js", "llm.js", "memory.js", "privacy.js", "attachments.js",
+      "events.js", "offline.js", "tools.js", "behavior.js", "menus.js", "skills/*.js", "assets/*.png",
+      "LICENSE", "PRIVACY.md"
+    ],
+    "win": {
+      "target": ["portable"],
+      "icon": "assets/idle.png",
+      "signExecutable": false,
+      "artifactName": "Bulya-${version}-windows-${arch}.${ext}"
+    }
+  }
+}

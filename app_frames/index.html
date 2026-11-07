@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: blob:; style-src 'self' 'unsafe-inline'; script-src 'self'">
+<title>Буля</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="closed">
+  <!-- разговор: облачка всплывают над Булей и тают -->
+  <div id="stack" aria-live="polite"></div>
+
+  <!-- поле ввода: капсула рядом с Булей -->
+  <form id="dock" autocomplete="off">
+    <div id="files"></div>
+    <div class="row">
+      <textarea id="input" rows="1" placeholder="Скажи Буле…" aria-label="Сообщение Буле"></textarea>
+      <button id="sendBtn" type="submit" title="Отправить (Enter)" aria-label="Отправить">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M4 12h13M12 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+  </form>
+
+  <div id="pet" title="Кликни — поговорить. Тяни — переставить. Брось файл — разберусь.">
+    <div id="ring"></div>
+    <div id="tilt"><div id="body"><img id="img" alt="Буля" draggable="false"><div id="sign" aria-hidden="true"></div></div></div>
+  </div>
+
+  <script src="recolor.js"></script>
+  <script src="behavior.js"></script>
+  <script src="renderer.js"></script>
+</body>
+</html>

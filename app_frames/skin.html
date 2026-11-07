@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: blob:; style-src 'self' 'unsafe-inline'; script-src 'self'">
+<title>Окрас Були</title>
+<style>
+  :root { --ink: #1C1B1F; --spot: #FBFBF8; --tongue: #F28CA6; --line: #E4E2DC; --muted: #6A6873; --field: #FFFFFF;
+    --font: "Segoe UI Variable Text", "Segoe UI Variable", "Segoe UI", system-ui, sans-serif; }
+  @media (prefers-color-scheme: dark) { :root { --ink: #F1F0EC; --spot: #1D1C21; --line: #34323B; --muted: #A3A1AB; --field: #26252B; } }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--spot); color: var(--ink); font-family: var(--font); font-size: 14px; }
+  main { padding: 18px 22px; }
+  h1 { font-size: 19px; margin: 0 0 12px; font-weight: 650; }
+  .stage { display: flex; justify-content: center; gap: 4px; background: linear-gradient(180deg, #5d86c4, #3a5f9a); border-radius: 16px; padding: 10px 6px 4px; }
+  .stage canvas { width: 180px; height: 180px; }
+  .pickers { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 16px 0 12px; }
+  .pick { display: flex; align-items: center; gap: 10px; padding: 8px 10px; border: 1px solid var(--line); border-radius: 12px; background: var(--field); cursor: pointer; }
+  .pick input { width: 40px; height: 32px; border: 0; padding: 0; background: none; cursor: pointer; }
+  .pick b { font-weight: 600; display: block; } .pick span { color: var(--muted); font-size: 12px; }
+  .presets { display: flex; flex-wrap: wrap; gap: 6px; }
+  .presets button { display: flex; align-items: center; gap: 6px; }
+  .sw { width: 14px; height: 14px; border-radius: 50%; border: 1px solid rgba(0,0,0,.25); }
+  button { font: inherit; border-radius: 10px; padding: 7px 12px; cursor: pointer; border: 1px solid var(--line); background: var(--field); color: var(--ink); }
+  button.primary { background: var(--ink); color: var(--spot); border-color: var(--ink); font-weight: 600; }
+  button:focus-visible, .pick:focus-within { outline: 2px solid var(--tongue); outline-offset: 2px; }
+  .actions { display: flex; gap: 8px; justify-content: flex-end; margin-top: 16px; }
+  .actions .left { margin-right: auto; }
+  .muted { color: var(--muted); font-size: 12.5px; margin: 10px 0 6px; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Окрас Були</h1>
+  <div class="stage"><canvas id="p1" width="400" height="400"></canvas><canvas id="p2" width="400" height="400"></canvas></div>
+  <div class="pickers">
+    <label class="pick"><input type="color" id="dark" value="#2B2320"><div><b>Голова и пятна</b><span>тёмная шерсть</span></div></label>
+    <label class="pick"><input type="color" id="light" value="#DDB07A"><div><b>Тело</b><span>светлая шерсть</span></div></label>
+  </div>
+  <div class="muted">Для начала можно взять готовый:</div>
+  <div class="presets" id="presets"></div>
+  <div class="actions">
+    <button type="button" class="left" id="classic">Вернуть классику</button>
+    <button type="button" id="cancel">Отмена</button>
+    <button type="button" class="primary" id="apply">Покрасить</button>
+  </div>
+</main>
+<script src="recolor.js"></script>
+<script src="skin.js"></script>
+</body>
+</html>
